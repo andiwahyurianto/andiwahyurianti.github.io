@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row justify-content-lg-center shadow-lg mt-5">
+			<div class="col-6 px-3 py-5">
+				<h4 class="font-weight-bold">Apa keluhan anda?</h4>
+				<input type="text" placeholder="Nama Kamu" class="form-control" name="nama">
+				<label for="">Bagaimana keadaan anda?</label>
+				<select  id="k1" class="form-control mb-2" name="k1">
+					<option value="">-- keadaan --</option>
+					<option value="1">Sakit</option>
+					<option value="2">Sehat</option>
+				</select>
+				<label for="">Apa keluhan anda?</label>
+				<select  id="k2" class="form-control mt-0" name="k2">
+					<option value="0">-- pilih gejala --</option>
+					<option value="1">Mual dan Muntah</option>
+					<option value="2">Sendi mendadak terasa sangat sakit</option>
+				</select>
+
+				<select  id="k3" class="form-control mt-3" name="k3" value="-- pilih gejala --">
+					<option value="0">-- pilih gejala --</option>
+					<option value="1">Kram perut dan feses cair</option>
+					<option value="2">Nyeri pada ulut hati</option>
+					<option value="3">Terjadi nyeri hebat dan pembengkakan</option>
+				</select>
+				<div class="row mt-5">
+					<div class="col-6">
+						<button type="button" onclick="um()" class="btn btn-danger btn-lg"><i class="fa fa-search" aria-hidden="true"></i> Cari</button>
+					</div>
+					<div class="col-6">
+						<a href="" class="btn btn-primary btn-lg float-right"><i class="fa fa-refresh"></i> Ulangi</a>
+					</div>
+				</div>
+
+				<h1 id="p" class="font-weight-bold mt-4"> </h1>
+			</div>
+
+		</div>
+	</div>
+</body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<!-- <script src="jquery-3.3.1.min.js"></script> -->
+<script>
+function um(){
+
+	var a;
+	var b;
+	var k1=$("[name='k1']").val();
+	var k2=$("[name='k2']").val();
+	var k3=$("[name='k3']").val();
+	var n=$("[name='nama']").val();
+
+	if (k1 =="1" && k2 == "1" && k3 == "1") {
+		a="mempunyai Diare dan mencegahnya Selalu mencuci tangan, terutama sebelum dan setelah makan, setelah menyentuh daging yang belum dimasak, setelah dari toilet, atau setelah bersin dan batuk, dengan menggunakan sabun dan air bersih.";
+	}else if(k1 =="1" && k2=="1" && k3== "2"){
+		a="mempunyai Maag dan pencegahanya <ul><li>Makanlah dalam porsi kecil dan secara perlahan.</li><li>Hindari makanan yang mengandung banyak asam.</li></ul>";
+	} else if(k1 =="1" && k2== "2" && k3=="3"){
+		a="mempunyai Asam Urat dan mencegahnya <ul><li>Menghindari Makanan memiliki zat Purin Tinggi</li><li>Perbanyak Minum Air Putih</li></ul>";
+	}else if(k1 == "2"){
+		a="Sehat <br><u>Terima Kasih</u>";
+	}else if(k2=="0" || k3=="0"){
+		a="belum memasukkan gejala anda";
+	}else{
+		a="mempunyai penyakit yang belum teridentifikasi";
+	}
+
+	document.getElementById("p").innerHTML="Sepertinya "+n+" "+a;
+
+}
+</script>
+</html>
